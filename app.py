@@ -1,3 +1,5 @@
+
+import config # On charge la config en premier (ce qui exécute load_dotenv)
 from flask import Flask, jsonify
 from flask_cors import CORS
 from routes.chat import chat_bp
