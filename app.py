@@ -3,7 +3,15 @@ from flask_cors import CORS
 from routes.chat import chat_bp
 
 app = Flask(__name__)
-CORS(app)
+
+# Configuration CORS (IMPORTANT)
+CORS(app, resources={
+    r"/*": {
+        "origins": "*",
+        "methods": ["GET", "POST", "OPTIONS"],
+        "allow_headers": ["Content-Type"]
+    }
+})
 
 app.register_blueprint(chat_bp)
 
